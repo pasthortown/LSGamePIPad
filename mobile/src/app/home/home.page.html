@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-row style="height: 100%">
+    <ion-col size="3" (click)="acelerar()">
+      
+    </ion-col>
+    <ion-col size="6">
+      <ion-list>
+          <ion-item>
+            <ion-range min="-5" max="5" color="secondary" [(ngModel)]="y">
+              <ion-label color="secondary" slot="start"><strong>Izquierda</strong></ion-label>
+              <ion-icon color="secondary" slot="start" name="arrow-round-back"></ion-icon>
+              <ion-icon color="secondary" slot="end" name="arrow-round-forward"></ion-icon>
+              <ion-label color="secondary" slot="end"><strong>Derecha</strong></ion-label>
+            </ion-range>
+          </ion-item>
+      </ion-list> 
+    </ion-col>
+    <ion-col size="3" (click)="reversa()">
+      
+    </ion-col>
+  </ion-row>
+</ion-content>

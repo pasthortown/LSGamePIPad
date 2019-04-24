@@ -1,0 +1,7 @@
+{
+  "name": "LSGamePiPad",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
