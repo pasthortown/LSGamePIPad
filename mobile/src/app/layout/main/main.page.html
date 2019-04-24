@@ -1,3 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title
+      ><span
+        ><img
+          src="assets/images/logo.png"
+          height="24px"
+          width="24px"
+          style="margin-top: 5px;"/></span
+      >&nbsp;{{ appName }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-row style="height: 100%">
     <ion-col size="3" (click)="acelerar()">
@@ -13,6 +30,7 @@
               <ion-label color="secondary" slot="end"><strong>Derecha</strong></ion-label>
             </ion-range>
           </ion-item>
+          <ion-img [src]="captura"></ion-img>
       </ion-list> 
     </ion-col>
     <ion-col size="3" (click)="reversa()">

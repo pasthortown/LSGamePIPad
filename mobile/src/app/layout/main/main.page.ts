@@ -1,18 +1,21 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { DeviceMotion, DeviceMotionAccelerationData, DeviceMotionAccelerometerOptions } from '@ionic-native/device-motion/ngx';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-main',
+  templateUrl: './main.page.html',
+  styleUrls: ['./main.page.scss'],
 })
-export class HomePage implements OnInit{
+export class MainPage implements OnInit {
+  appName = environment.app_name;
   options: DeviceMotionAccelerometerOptions;
   x: number;
   y: number;
   z: number;
-  
+  captura = '';
+
   constructor(private screenOrientation: ScreenOrientation,
               private deviceMotion: DeviceMotion) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
