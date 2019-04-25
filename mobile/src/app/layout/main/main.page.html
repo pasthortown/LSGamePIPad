@@ -7,27 +7,31 @@
       </ion-item>
     </ion-col>
     <ion-col size="6">
-      <ion-range min="-5" max="5" color="secondary" [(ngModel)]="y">
-        <ion-label color="secondary" slot="start"><strong>Izquierda</strong></ion-label>
-        <ion-icon color="secondary" slot="start" name="arrow-round-back"></ion-icon>
-        <ion-icon color="secondary" slot="end" name="arrow-round-forward"></ion-icon>
-        <ion-label color="secondary" slot="end"><strong>Derecha</strong></ion-label>
+      <ion-range min="-5" max="5" color="dark" [(ngModel)]="y">
+        <ion-label color="dark" slot="start"><strong>Izquierda</strong></ion-label>
+        <ion-icon color="dark" slot="start" name="arrow-round-back"></ion-icon>
+        <ion-icon color="dark" slot="end" name="arrow-round-forward"></ion-icon>
+        <ion-label color="dark" slot="end"><strong>Derecha</strong></ion-label>
       </ion-range>
     </ion-col>
     <ion-col size="3">
-      
+      <ion-item lines="none">
+        <ion-img *ngIf="direction == 'detenido'" src="assets/images/detenido.png" style="width: 50px; height: 50px;"></ion-img>
+        <ion-img *ngIf="direction == 'acelerando'" src="assets/images/acelerando.png" style="width: 50px; height: 50px;"></ion-img>
+        <ion-img *ngIf="direction == 'reversa'" src="assets/images/reversa.png" style="width: 50px; height: 50px;"></ion-img>
+      </ion-item>
     </ion-col>
   </ion-row>
 </ion-header>
 
 <ion-content>
   <ion-row style="height: 100%">
-    <ion-col size="3" (click)="acelerar()">
+    <ion-col size="3" (mousedown)="reversa()" (mouseup)="detener()" style="background-color:gray; background-image: url(assets/images/freno.png); background-repeat: no-repeat; background-position: center bottom;">
     </ion-col>
     <ion-col size="6">
       <img src="{{captura}}" style="height: 100%; width: 100%;"/>
     </ion-col>
-    <ion-col size="3" (click)="reversa()">
+    <ion-col size="3" (mousedown)="acelerar()" (mouseup)="detener()" style="background-color: gray; background-image: url(assets/images/acelerador.png); background-repeat: no-repeat; background-position: center bottom;">
     </ion-col>
   </ion-row>
 </ion-content>

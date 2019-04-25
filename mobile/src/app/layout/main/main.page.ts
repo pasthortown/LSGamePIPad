@@ -16,6 +16,7 @@ export class MainPage implements OnInit {
   y: number;
   z: number;
   captura = '';
+  direction = 'detenido';
   constructor(private screenOrientation: ScreenOrientation,
               private remoteCameraDataService: RemoteCameraService,
               private deviceMotion: DeviceMotion) {
@@ -29,7 +30,7 @@ export class MainPage implements OnInit {
   }
 
   initCapture() {
-    this.remoteCameraDataService.pedirImagen("prueba");
+    this.remoteCameraDataService.pedirImagen('request');
     if (true) {
       setTimeout(() => {
         this.initCapture();
@@ -54,10 +55,14 @@ export class MainPage implements OnInit {
   }
 
   acelerar() {
-    alert(1);
+    this.direction = 'acelerando';
   }
 
   reversa() {
-    alert(2);
+    this.direction = 'reversa';
+  }
+
+  detener() {
+    this.direction = 'detenido';
   }
 }
