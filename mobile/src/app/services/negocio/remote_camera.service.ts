@@ -26,8 +26,4 @@ export class RemoteCameraService {
          });
       });
    }
-
-   handledError(error: any) {
-      console.log(error);
-   }
 }
