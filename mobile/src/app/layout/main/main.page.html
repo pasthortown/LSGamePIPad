@@ -1,40 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title
-      ><span
-        ><img
-          src="assets/images/logo.png"
-          height="24px"
-          width="24px"
-          style="margin-top: 5px;"/></span
-      >&nbsp;{{ appName }}
-    </ion-title>
-  </ion-toolbar>
+  <ion-row>
+    <ion-col size="3" text-left>
+      <ion-item lines="none">
+        <ion-img src="assets/images/logo.png"></ion-img>
+        <ion-label>&nbsp;<strong>{{appName}}</strong></ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-range min="-5" max="5" color="secondary" [(ngModel)]="y">
+        <ion-label color="secondary" slot="start"><strong>Izquierda</strong></ion-label>
+        <ion-icon color="secondary" slot="start" name="arrow-round-back"></ion-icon>
+        <ion-icon color="secondary" slot="end" name="arrow-round-forward"></ion-icon>
+        <ion-label color="secondary" slot="end"><strong>Derecha</strong></ion-label>
+      </ion-range>
+    </ion-col>
+    <ion-col size="3">
+      
+    </ion-col>
+  </ion-row>
 </ion-header>
 
 <ion-content>
   <ion-row style="height: 100%">
     <ion-col size="3" (click)="acelerar()">
-      
     </ion-col>
     <ion-col size="6">
-      <ion-list>
-          <ion-item>
-            <ion-range min="-5" max="5" color="secondary" [(ngModel)]="y">
-              <ion-label color="secondary" slot="start"><strong>Izquierda</strong></ion-label>
-              <ion-icon color="secondary" slot="start" name="arrow-round-back"></ion-icon>
-              <ion-icon color="secondary" slot="end" name="arrow-round-forward"></ion-icon>
-              <ion-label color="secondary" slot="end"><strong>Derecha</strong></ion-label>
-            </ion-range>
-          </ion-item>
-          <ion-img [src]="captura"></ion-img>
-      </ion-list> 
+      <img src="{{captura}}" style="height: 100%; width: 100%;"/>
     </ion-col>
     <ion-col size="3" (click)="reversa()">
-      
     </ion-col>
   </ion-row>
 </ion-content>

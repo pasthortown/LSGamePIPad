@@ -1,3 +1,4 @@
+import { RemoteCameraService } from 'src/app/services/negocio/remote_camera.service';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
@@ -15,14 +16,32 @@ export class MainPage implements OnInit {
   y: number;
   z: number;
   captura = '';
-
   constructor(private screenOrientation: ScreenOrientation,
+              private remoteCameraDataService: RemoteCameraService,
               private deviceMotion: DeviceMotion) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
 
   ngOnInit() {
     this.startMotionDetection();
+    this.listenRemoteCamera();
+    this.initCapture();
+  }
+
+  initCapture() {
+    this.remoteCameraDataService.pedirImagen("prueba");
+    if (true) {
+      setTimeout(() => {
+        this.initCapture();
+      }, 100);
+    }
+  }
+
+  listenRemoteCamera() {
+    this.remoteCameraDataService.getImages()
+    .subscribe(r => {
+      this.captura = 'data:image/png;base64,' + JSON.parse(r).data;
+    });
   }
 
   startMotionDetection() {

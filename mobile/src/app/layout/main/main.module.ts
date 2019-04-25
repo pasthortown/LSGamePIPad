@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { MainPage } from './main.page';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { DeviceMotion } from '@ionic-native/device-motion/ngx';
+import { RemoteCameraService } from 'src/app/services/negocio/remote_camera.service';
 
 const routes: Routes = [
   {
@@ -24,6 +25,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [MainPage],
-  providers: [ScreenOrientation, DeviceMotion]
+  providers: [ScreenOrientation, DeviceMotion, RemoteCameraService]
 })
 export class MainPageModule {}
